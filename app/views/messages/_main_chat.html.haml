@@ -1,4 +1,38 @@
 .main-chat
   .main-chat__group-name
+    .main-chat__group-name__leftbox
+      %p.main-chat__group-name__leftbox--name
+      aaa
+      %ul.main-chat__group-name__leftbox--member
+        Member : 
+        %li.main-chat__group-name__leftbox--member--list
+          masa
+    .main-chat__group-name__rightbox
+      = link_to "#", class: "edit__btn" do
+        Edit
+      
   .main-chat__message-list
+    .main-chat__message-list__box
+      .main-chat__message-list__box__user
+        %p.main-chat__message-list__box__user__name
+          masa
+        %p.main-chat__message-list__box__user__date
+          2019
+      %p.main-chat__message-list__box__message
+        ohayou
+    .main-chat__message-list__box
+      .main-chat__message-list__box__user
+        %p.main-chat__message-list__box__user__name
+          masa
+        %p.main-chat__message-list__box__user__date
+          2019
+      %p.main-chat__message-list__box__message
+        ohayou
   .main-chat__message-form
+    %form.new-messages
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type:"file", class: "input-box__image__file"}
+      %input{type:"submit", class: "submit-btn"}
