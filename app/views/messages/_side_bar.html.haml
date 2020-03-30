@@ -2,13 +2,13 @@
   .side-bar__top-box
     .side-bar__top-box__user
       %p.side-bar__top-box__user__name
-        masa
+        = current_user.name
       %ul.side-bar__top-box__user__icons
         %li.side-bar__top-box__user__icons--newchat
           = link_to "#" do
             %i.con.far.fa-edit
         %li.side-bar__top-box__user__icons--box__icons__editaccount
-          = link_to "#" do
+          = link_to edit_user_path(current_user) do
             %i.fas.fa-cog
   .side-bar__group
     .side-bar__group__box
