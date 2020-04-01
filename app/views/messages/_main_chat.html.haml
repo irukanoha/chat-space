@@ -2,37 +2,25 @@
   .main-chat__group-name
     .main-chat__group-name__leftbox
       %p.main-chat__group-name__leftbox--name
-      aaa
+        = @group.name
       %ul.main-chat__group-name__leftbox--member
         Member : 
         %li.main-chat__group-name__leftbox--member--list
-          masa
+          - @group.users.each do |name|
+            = name.name
     .main-chat__group-name__rightbox
-      = link_to "#", class: "edit__btn" do
+      = link_to edit_group_path(@group), class: "edit__btn" do
         Edit
       
   .main-chat__message-list
-    .main-chat__message-list__box
-      .main-chat__message-list__box__user
-        %p.main-chat__message-list__box__user__name
-          masa
-        %p.main-chat__message-list__box__user__date
-          2019
-      %p.main-chat__message-list__box__message
-        ohayou
-    .main-chat__message-list__box
-      .main-chat__message-list__box__user
-        %p.main-chat__message-list__box__user__name
-          masa
-        %p.main-chat__message-list__box__user__date
-          2019
-      %p.main-chat__message-list__box__message
-        ohayou
-  .main-chat__message-form
-    %form.new-messages
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type:"file", class: "input-box__image__file"}
-      %input{type:"submit", class: "submit-btn"}
+    = render @messages
+
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
+      
