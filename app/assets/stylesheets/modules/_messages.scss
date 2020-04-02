@@ -47,6 +47,9 @@
       &__box {
         margin-bottom: 40px;
         font-weight: bold;
+        a {
+          text-decoration: none;
+        }
         &__name {
           color: #ffffff;
           font-size: 15px;
@@ -55,24 +58,10 @@
         &__message {
           color: #ffffff;
           font-size: 11px;
-        }
-      }
-      &__box {
-        margin-bottom: 40px;
-        font-weight: bold;
-        &__name {
-          color: #ffffff;
-          font-size: 15px;
-          margin-bottom: 5px;
-        }
-        &__message {
-          color: #ffffff;
-          font-size: 11px;
-        }
+        }  
       }
     }
   }
-
 
   .main-chat {
     background-color: #ffffff;
