@@ -59,7 +59,10 @@ $(function(){
       })
       .fail(function() {
         alert("メッセージ送信に失敗しました");
-      });
+      })
+      .always(function() {
+      $('.form__submit').removeAttr('disabled');
+    });
   });
   var reloadMessages = function() {
     var last_message_id = $('.main-chat__message-list__box:last').data("message-id");
@@ -82,9 +85,6 @@ $(function(){
     .fail(function() {
       alert('error');
     })
-    .always(function() {
-      $('.form__submit').removeAttr('disabled');
-    });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
     setInterval(reloadMessages, 7000);
